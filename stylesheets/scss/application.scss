@@ -1,0 +1,134 @@
+@import "bourbon/bourbon";
+@import "grid-settings";
+@import "neat/neat";
+@import "reset";
+
+// VARIABLES
+$color-accent: #1DBA8F;
+$color-dark:   #333;
+$color-mid:    #DDD;
+$color-light:  #FCFCFC;
+
+$font-base: 'avenir next', $helvetica;
+
+$small:  em(24);
+$medium: em(36);
+$large:  em(48);
+$xlarge: em(60);
+
+// MIXINS
+@mixin vertical-center($height) {
+  height: $height;
+  line-height: $height;
+}
+
+html, 
+body {
+  min-height: 100%;
+}
+
+body {
+  background-color: $color-light;
+  color: $color-dark;
+  font-family: $font-base;
+  font-size: 18px;
+  line-height: $small;
+}
+
+h1,
+h2, 
+h3,
+h4 {
+  padding-bottom: 1em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: $large;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: $medium;
+}
+
+h3 {
+  font-size: $small;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1em;
+  font-style: italic;
+}
+
+p {
+  padding-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: $color-accent;
+  cursor: pointer;
+}
+
+.right {
+  float: right !important;
+}
+
+.left {
+  float: left !important;
+}
+
+.header-main {
+  @include outer-container;
+  @include vertical-center($large);
+  border-bottom: 1px solid $color-accent;
+  padding: 0 $gutter;
+}
+
+.panes {
+  @include outer-container;
+  @include position(absolute, $large 0px 0px 0px);
+}
+
+%pane {
+  @include position(absolute, 0px 0 0px 0);
+  border-right: 1px solid $color-accent;
+}
+
+.pane-primary {
+  @extend %pane; 
+  @include span-columns(3);
+  @include omega;
+}
+
+.pane-secondary {
+  @extend %pane;
+  @include span-columns(9);
+  @include omega;
+  @include shift(3);
+  border: 0;
+}
+
+.pane-tertiary {
+  @extend %pane;
+  display: none;
+}
+
+.nav-item {
+  padding: $gutter;
+  display: block;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  .pane-primary & { 
+   
+  }
+
+  .pane-secondary & {
+    margin-right: $gutter;
+  }
+}

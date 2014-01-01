@@ -1,0 +1,207 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+input, textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-color: #fcfcfc;
+  color: #333333;
+  font-family: "avenir next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  padding-bottom: 1em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.25em;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1em;
+  font-style: italic;
+}
+
+p {
+  padding-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #1dba8f;
+  cursor: pointer;
+}
+
+.right {
+  float: right !important;
+}
+
+.left {
+  float: left !important;
+}
+
+.header-main {
+  *zoom: 1;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 3em;
+  line-height: 3em;
+  border-bottom: 1px solid #1dba8f;
+  padding: 0 1.618em;
+}
+.header-main:before, .header-main:after {
+  content: " ";
+  display: table;
+}
+.header-main:after {
+  clear: both;
+}
+
+.panes {
+  *zoom: 1;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 3em;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+.panes:before, .panes:after {
+  content: " ";
+  display: table;
+}
+.panes:after {
+  clear: both;
+}
+
+.pane-primary, .pane-secondary, .pane-tertiary {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  border-right: 1px solid #1dba8f;
+}
+
+.pane-primary {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  margin-right: 0;
+}
+.pane-primary:last-child {
+  margin-right: 0;
+}
+
+.pane-secondary {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 74.41059%;
+  margin-right: 0;
+  margin-left: 25.58941%;
+  border: 0;
+}
+.pane-secondary:last-child {
+  margin-right: 0;
+}
+
+.pane-tertiary {
+  display: none;
+}
+
+.nav-item {
+  padding: 1.618em;
+  display: block;
+}
+.nav-item:hover {
+  text-decoration: underline;
+}
+.pane-secondary .nav-item {
+  margin-right: 1.618em;
+}
