@@ -4,10 +4,12 @@
 @import "reset";
 
 // VARIABLES
-$color-accent: #1DBA8F;
-$color-dark:   #333;
+$color-dark:   #444;
 $color-mid:    #DDD;
 $color-light:  #FCFCFC;
+
+$color-primary: #1DBA8F;
+$color-text: $color-dark;
 
 $font-base: 'avenir next', $helvetica;
 
@@ -29,7 +31,7 @@ body {
 
 body {
   background-color: $color-light;
-  color: $color-dark;
+  color: $color-text;
   font-family: $font-base;
   font-size: 18px;
   line-height: $small;
@@ -68,7 +70,7 @@ p {
 
 a {
   text-decoration: none;
-  color: $color-accent;
+  color: $color-primary;
   cursor: pointer;
 }
 
@@ -83,8 +85,11 @@ a {
 .header-main {
   @include outer-container;
   @include vertical-center($large);
-  border-bottom: 1px solid $color-accent;
+  @include position(fixed, 0px 0px 0 0px);
+  background-color: $color-light;
+  border-bottom: 2px solid $color-primary;
   padding: 0 $gutter;
+  z-index: 99;
 }
 
 .panes {
@@ -93,14 +98,26 @@ a {
 }
 
 %pane {
-  @include position(absolute, 0px 0 0px 0);
-  border-right: 1px solid $color-accent;
+  @include position(fixed, 0px 0 0px 0);
 }
+
+// %pane-mask {
+//   &::before {
+//     $width: 30px;
+//     $left: -($width) - 1px;
+//     @include position(absolute, 0px 0 0px $left);
+//     @include background-image(linear-gradient(to left, $color-light, rgba($color-light, 0)));
+//     @include size($width 100%);
+//     display: block;
+//     content: "";
+//   }
+// }
 
 .pane-primary {
   @extend %pane; 
   @include span-columns(3);
   @include omega;
+  border-right: 1px solid $color-primary;
 }
 
 .pane-secondary {
@@ -113,11 +130,21 @@ a {
 
 .pane-tertiary {
   @extend %pane;
-  display: none;
+  @include span-columns(10);
+  @include shift(1.5);
+  @include transform(translateX(110%));
+  border-left: 1px solid $color-primary; 
+  background-color: $color-light;
+  position: absolute;
+  // min-height: 100vh;
+
+  .pane-content {
+    padding: $gutter;
+  }
 }
 
 .nav-item {
-  padding: $gutter;
+  padding: $gutter 0;
   display: block;
   
   &:hover {
@@ -125,10 +152,25 @@ a {
   }
   
   .pane-primary & { 
-   
+    padding: $gutter;
   }
 
   .pane-secondary & {
-    margin-right: $gutter;
+
+  }
+}
+
+// STATES
+.tertiary-active {
+  .pane-primary {
+    @include span-columns(1);
+  }
+
+  .pane-secondary {
+    @include shift(1);
+  }
+
+  .pane-tertiary {
+    @include transform(translateX(0));
   }
 }
