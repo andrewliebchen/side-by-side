@@ -98,7 +98,8 @@ a {
 }
 
 %pane {
-  @include position(fixed, 0px 0 0px 0);
+  @include position(fixed, $large 0 0px 0);
+  @include transition;
 }
 
 // %pane-mask {
@@ -136,7 +137,7 @@ a {
   border-left: 1px solid $color-primary; 
   background-color: $color-light;
   position: absolute;
-  // min-height: 100vh;
+  top: 0;
 
   .pane-content {
     padding: $gutter;
@@ -161,7 +162,7 @@ a {
 }
 
 // STATES
-.tertiary-active {
+.pane-focus-tertiary {
   .pane-primary {
     @include span-columns(1);
   }

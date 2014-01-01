@@ -168,8 +168,11 @@ a {
 
 .pane-primary, .pane-secondary, .pane-tertiary {
   position: fixed;
-  top: 0px;
+  top: 3em;
   bottom: 0px;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
 }
 
 .pane-primary {
@@ -211,6 +214,7 @@ a {
   border-left: 1px solid #1dba8f;
   background-color: #fcfcfc;
   position: absolute;
+  top: 0;
 }
 .pane-tertiary:last-child {
   margin-right: 0;
@@ -230,19 +234,19 @@ a {
   padding: 1.618em;
 }
 
-.tertiary-active .pane-primary {
+.pane-focus-tertiary .pane-primary {
   display: block;
   float: left;
   margin-right: 2.35765%;
   width: 6.17215%;
 }
-.tertiary-active .pane-primary:last-child {
+.pane-focus-tertiary .pane-primary:last-child {
   margin-right: 0;
 }
-.tertiary-active .pane-secondary {
+.pane-focus-tertiary .pane-secondary {
   margin-left: 8.5298%;
 }
-.tertiary-active .pane-tertiary {
+.pane-focus-tertiary .pane-tertiary {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
