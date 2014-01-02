@@ -3,6 +3,8 @@
 @import "neat/neat";
 @import "reset";
 
+@include font-face(fontastic, '../../fonts/fontastic/side-by-side');
+
 // VARIABLES
 $color-dark:   #444;
 $color-mid:    #DDD;
@@ -12,21 +14,40 @@ $color-primary: #1DBA8F;
 $color-text: $color-dark;
 
 $font-base: 'avenir next', $helvetica;
+$font-icon: fontastic;
 
 $small:  em(24);
 $medium: em(36);
 $large:  em(48);
 $xlarge: em(60);
 
+// ICONS
+[data-icon] {
+  min-height: $small;
+  min-width: $small;
+  text-align: center;
+
+  &::before {
+    font-family: $font-icon;
+    font-size: 1em;
+    color: inherit;
+    display: block;
+  }
+}
+
+[data-icon="plus"]::before {
+  content: "\E006";
+}
+
+[data-icon="close"]::before {
+  @extend [data-icon="plus"]::before;
+  @include transform(rotate(45deg));
+}
+
 // MIXINS
 @mixin vertical-center($height) {
   height: $height;
   line-height: $height;
-}
-
-html, 
-body {
-  min-height: 100%;
 }
 
 body {
@@ -141,6 +162,15 @@ a {
 
   .pane-content {
     padding: $gutter;
+  }
+
+  [data-icon="close"] {
+    color: $color-mid;
+    float: right;
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }
 

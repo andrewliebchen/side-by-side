@@ -65,9 +65,36 @@ table {
   border-spacing: 0;
 }
 
-html,
-body {
-  min-height: 100%;
+@font-face {
+  font-family: fontastic;
+  font-weight: normal;
+  font-style: normal;
+  src: url("../../fonts/fontastic/side-by-side.eot");
+  src: url("../../fonts/fontastic/side-by-side.eot?#iefix") format("embedded-opentype"), url("../../fonts/fontastic/side-by-side.woff") format("woff"), url("../../fonts/fontastic/side-by-side.ttf") format("truetype"), url("../../fonts/fontastic/side-by-side.svg#fontastic") format("svg");
+}
+
+[data-icon] {
+  min-height: 1.5em;
+  min-width: 1.5em;
+  text-align: center;
+}
+[data-icon]::before {
+  font-family: fontastic;
+  font-size: 1em;
+  color: inherit;
+  display: block;
+}
+
+[data-icon="plus"]::before, [data-icon="close"]::before {
+  content: "\E006";
+}
+
+[data-icon="close"]::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 body {
@@ -221,6 +248,13 @@ a {
 }
 .pane-tertiary .pane-content {
   padding: 1.618em;
+}
+.pane-tertiary [data-icon="close"] {
+  color: #dddddd;
+  float: right;
+}
+.pane-tertiary [data-icon="close"]:hover {
+  color: #1dba8f;
 }
 
 .nav-item {
