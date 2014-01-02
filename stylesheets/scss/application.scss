@@ -35,13 +35,40 @@ $xlarge: em(60);
   }
 }
 
-[data-icon="plus"]::before {
-  content: "\E006";
+a[data-icon] {
+  color: $color-mid;
+
+  &:hover {
+    color: $color-primary;
+  }
 }
 
 [data-icon="close"]::before {
-  @extend [data-icon="plus"]::before;
-  @include transform(rotate(45deg));
+  content: "\E006";
+}
+
+[data-icon="menu"]::before {
+  content: "\E005";
+}
+
+[data-icon="right"]::before {
+  content: "\E007";
+}
+
+[data-icon="dribbble"]::before {
+  content: "\E000";
+}
+
+[data-icon="github"]::before {
+  content: "\E001";
+}
+
+[data-icon="twitter"]::before {
+  content: "\E002";
+}
+
+[data-icon="linkedin"]::before {
+  content: "\E003";
 }
 
 // MIXINS
@@ -113,6 +140,19 @@ a {
   z-index: 99;
 }
 
+.links {
+  float: right;
+}
+
+.link {
+  float: left;
+  margin-left: 0.8em;
+
+  a {
+    font-size: 1.2em;
+  }
+}
+
 .panes {
   @include outer-container;
   @include position(absolute, $large 0px 0px 0px);
@@ -122,18 +162,6 @@ a {
   @include position(fixed, $large 0 0px 0);
   @include transition;
 }
-
-// %pane-mask {
-//   &::before {
-//     $width: 30px;
-//     $left: -($width) - 1px;
-//     @include position(absolute, 0px 0 0px $left);
-//     @include background-image(linear-gradient(to left, $color-light, rgba($color-light, 0)));
-//     @include size($width 100%);
-//     display: block;
-//     content: "";
-//   }
-// }
 
 .pane-primary {
   @extend %pane; 
@@ -165,12 +193,8 @@ a {
   }
 
   [data-icon="close"] {
-    color: $color-mid;
-    float: right;
-
-    &:hover {
-      color: $color-primary;
-    }
+    @include position(absolute, 1.5em 0px 0 0);
+    font-size: 1.5em;
   }
 }
 
@@ -187,7 +211,17 @@ a {
   }
 
   .pane-secondary & {
+    &::after {
+      @extend [data-icon="right"]::before;
+      font-family: $font-icon;
+      display: none;
+      float: right;
+      margin-right: $gutter;
+    }
 
+    &:hover::after {
+      display: block;
+    }
   }
 }
 

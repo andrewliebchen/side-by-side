@@ -1,9 +1,9 @@
 (function() {
   var paneContentHeight;
 
-  paneContentHeight = function() {
+  paneContentHeight = function(content) {
     var contentHeight;
-    contentHeight = $('.pane-content').outerHeight();
+    contentHeight = $(content).find('.pane-content').outerHeight();
     return $('.pane-tertiary').css('min-height', contentHeight);
   };
 
@@ -13,7 +13,7 @@
       focusPane = $(this).data('pane-focus');
       event.preventDefault();
       $('body').addClass("pane-focus-" + focusPane);
-      return paneContentHeight();
+      return paneContentHeight(".pane-" + focusPane);
     });
     return $(document).on('click', '[data-pane-close]', function(event) {
       var closePane;

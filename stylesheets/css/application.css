@@ -85,16 +85,39 @@ table {
   display: block;
 }
 
-[data-icon="plus"]::before, [data-icon="close"]::before {
-  content: "\E006";
+a[data-icon] {
+  color: #dddddd;
+}
+a[data-icon]:hover {
+  color: #1dba8f;
 }
 
 [data-icon="close"]::before {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+  content: "\E006";
+}
+
+[data-icon="menu"]::before {
+  content: "\E005";
+}
+
+[data-icon="right"]::before, .pane-secondary .nav-item::after {
+  content: "\E007";
+}
+
+[data-icon="dribbble"]::before {
+  content: "\E000";
+}
+
+[data-icon="github"]::before {
+  content: "\E001";
+}
+
+[data-icon="twitter"]::before {
+  content: "\E002";
+}
+
+[data-icon="linkedin"]::before {
+  content: "\E003";
 }
 
 body {
@@ -174,6 +197,18 @@ a {
   clear: both;
 }
 
+.links {
+  float: right;
+}
+
+.link {
+  float: left;
+  margin-left: 0.8em;
+}
+.link a {
+  font-size: 1.2em;
+}
+
 .panes {
   *zoom: 1;
   max-width: 100%;
@@ -250,11 +285,10 @@ a {
   padding: 1.618em;
 }
 .pane-tertiary [data-icon="close"] {
-  color: #dddddd;
-  float: right;
-}
-.pane-tertiary [data-icon="close"]:hover {
-  color: #1dba8f;
+  position: absolute;
+  top: 1.5em;
+  right: 0px;
+  font-size: 1.5em;
 }
 
 .nav-item {
@@ -266,6 +300,15 @@ a {
 }
 .pane-primary .nav-item {
   padding: 1.618em;
+}
+.pane-secondary .nav-item::after {
+  font-family: fontastic;
+  display: none;
+  float: right;
+  margin-right: 1.618em;
+}
+.pane-secondary .nav-item:hover::after {
+  display: block;
 }
 
 .pane-focus-tertiary .pane-primary {

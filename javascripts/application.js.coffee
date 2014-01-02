@@ -1,5 +1,5 @@
-paneContentHeight = ->
-  contentHeight = $('.pane-content').outerHeight()
+paneContentHeight = (content) ->
+  contentHeight = $(content).find('.pane-content').outerHeight()
   $('.pane-tertiary').css('min-height', contentHeight)
 
 $ ->
@@ -8,7 +8,7 @@ $ ->
     focusPane = $(@).data('pane-focus')
     event.preventDefault()
     $('body').addClass("pane-focus-#{focusPane}")
-    paneContentHeight()
+    paneContentHeight(".pane-#{focusPane}")
 
   $(document).on 'click', '[data-pane-close]', (event) ->
     closePane = $(@).data('pane-close')
