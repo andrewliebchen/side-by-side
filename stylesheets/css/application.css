@@ -292,7 +292,7 @@ a {
 }
 
 .nav-item {
-  padding: 1.618em 0;
+  padding: 1.618em 0 0;
   display: block;
 }
 .nav-item:hover {
